@@ -9,7 +9,7 @@ public class CoISA {
         System.out.println("-----");
         controlarDisciplina();
         System.out.println("-----");
-        registrarResumos();
+      //  registrarResumos();
     }
     public static void registrarDescanso() {
         Descanso descanso = new Descanso();
@@ -24,6 +24,7 @@ public class CoISA {
         descanso.defineNumeroSemanas(1);
         System.out.println(descanso.getStatusGeral());
     }
+
     private static void registrarTempoOnline() {
         RegistroTempoOnline tempoLP2 = new RegistroTempoOnline("LP2", 30);
         tempoLP2.adicionaTempoOnline(10);
@@ -37,6 +38,7 @@ public class CoISA {
         RegistroTempoOnline tempoP2 = new RegistroTempoOnline("P2");
         System.out.println(tempoP2.toString());
     }
+
     private static void controlarDisciplina() {
         Disciplina prog2 = new Disciplina("PROGRAMACAO 2");
         prog2.cadastraHoras(4);
@@ -48,6 +50,7 @@ public class CoISA {
         System.out.println(prog2.aprovado());
         System.out.println(prog2.toString());
     }
+    /*
     private static void registrarResumos() {
         RegistroResumos meusResumos = new RegistroResumos(100);  // 100 resumos
         meusResumos.adiciona("Classes", "Classes definem um tipo e a base de código para criação de objetos.");
@@ -68,4 +71,6 @@ public class CoISA {
         System.out.println(meusResumos.temResumo("Classes"));
         System.out.println(meusResumos.temResumo("Objetos"));
     }
+
+     */
 }
