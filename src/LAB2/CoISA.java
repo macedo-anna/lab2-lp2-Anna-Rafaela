@@ -5,11 +5,11 @@ public class CoISA {
     public static void main(String[] args) {
         registrarDescanso();
         System.out.println("-----");
-        registrarTempoOnline();
+       // registrarTempoOnline();
         System.out.println("-----");
-        controlarDisciplina();
+        //controlarDisciplina();
         System.out.println("-----");
-        registrarResumos();
+      //  registrarResumos();
     }
     public static void registrarDescanso() {
         Descanso descanso = new Descanso();
@@ -24,6 +24,7 @@ public class CoISA {
         descanso.defineNumeroSemanas(1);
         System.out.println(descanso.getStatusGeral());
     }
+    /*
     private static void registrarTempoOnline() {
         RegistroTempoOnline tempoLP2 = new RegistroTempoOnline("LP2", 30);
         tempoLP2.adicionaTempoOnline(10);
@@ -68,4 +69,6 @@ public class CoISA {
         System.out.println(meusResumos.temResumo("Classes"));
         System.out.println(meusResumos.temResumo("Objetos"));
     }
+
+     */
 }
