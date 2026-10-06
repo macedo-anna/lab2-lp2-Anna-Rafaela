@@ -2,22 +2,61 @@ package LAB2;
 
 import java.util.Arrays;
 
+/**
+ * Representação de um registro de resumos de estudo.
+ * O registro armazena uma quantidade limitada de resumos e permite
+ * adicionar, consultar, buscar e obter informações sobre os resumos
+ * cadastrados.
+ *
+ * @author Anna Rafaela
+ */
+
 public class RegistroResumos {
+
+    /**
+     * Array responsável por armazenar os resumos cadastrados.
+     */
     private Resumo[] resumo;
+
+
+    /**
+     * Quantidade de resumos atualmente cadastrados no registro.
+     */
     private int qntResumo;
+
+
+    /**
+     * Índice da próxima posição disponível para cadastrar um resumo.
+     */
     private int proximoIndice;
 
+
+    /**
+     * Constrói um registro de resumos com uma quantidade máxima
+     * de resumos definida.
+     *
+     * @param numeroDeResumos quantidade máxima de resumos que poderão
+     * ser armazenados no registro
+     */
     public RegistroResumos(int numeroDeResumos){
         this.proximoIndice = 0;
         this.qntResumo = 0;
         this.resumo = new Resumo[numeroDeResumos];
     }
+
+
+    /**
+     * Adiciona um novo resumo ao registro.
+     * Quando o final do array é alcançado, o próximo resumo
+     * volta a ser armazenado a partir da primeira posição.
+     *
+     * @param tema tema do resumo
+     * @param conteudo conteúdo do resumo
+     */
     public void adiciona(String tema,String conteudo) {
 
         resumo[proximoIndice] = new Resumo(tema,conteudo);
         proximoIndice++;
-
-
 
         if (proximoIndice == resumo.length) {
             proximoIndice = 0 ;
@@ -28,12 +67,28 @@ public class RegistroResumos {
         }
 
     }
-    //vai retornar a quantidade de resumos que ja cadastrados.
+
+
+    /**
+     * Retorna a quantidade de resumos atualmente cadastrados.
+     *
+     * @return quantidade de resumos cadastrados
+     */
     public int conta() {
         return qntResumo;
     }
 
-    //verifica se ja tem resumo com o determinado tema da vez.
+
+
+    /**
+     * Verifica se existe um resumo cadastrado com o tema informado.
+     * A comparação entre os temas não diferencia letras maiúsculas
+     * de letras minúsculas.
+     *
+     * @param tema tema que será procurado entre os resumos cadastrados
+     * @return true se existir um resumo com o tema informado ou
+     * false caso contrário
+     */
     public boolean temResumo(String tema) {
         for (int i = 0; i < qntResumo; i++) {
             if (resumo[i].getTema().equalsIgnoreCase(tema)) {
@@ -45,8 +100,15 @@ public class RegistroResumos {
         return false;
     }
 
-    //retorna resumos cadrastrados.
 
+
+
+    /**
+     * Retorna os resumos atualmente cadastrados em um array de Strings.
+     * Cada posição do array contém a representação em String de um resumo.
+     *
+     * @return array contendo os resumos cadastrados
+     */
     public String[] pegaResumos() {
 
         String[] resultado = new String[qntResumo];
@@ -58,8 +120,13 @@ public class RegistroResumos {
         return resultado;
     }
 
-    //imprime os temas cadrastrados.
 
+
+    /**
+     * Retorna uma String contendo a quantidade de resumos cadastrados
+     *
+     * @return String contendo a quantidade e os temas dos resumos cadastrados
+     */
     public String imprimeResumos() {
 
         String resultado = "- " + qntResumo + " resumos(s) cadastrados(n)\n";
@@ -77,8 +144,18 @@ public class RegistroResumos {
         return resultado;
     }
 
-    //vai buscar palavras nos conteudos do resumo.
 
+
+    /**
+     * Busca uma palavras dentro dos conteúdos dos resumos.
+     * A busca não diferencia letras maiúsculas de letras minúsculas.
+     * Os temas dos resumos encontrados são retornados em ordem alfabética.
+     *
+     * @param chaveDeBusca palavra que será procurada
+     * nos conteúdos dos resumos
+     * @return array contendo os temas dos resumos que possuem
+     * a chave de busca
+     */
     public String[] busca(String chaveDeBusca) {
         String[] encontrados = new String[qntResumo];
         int contador = 0;
@@ -107,10 +184,21 @@ public class RegistroResumos {
         return resultadoFinal;
     }
 
+    /**
+     * Retorna a quantidade de resumos atualmente cadastrados.
+     *
+     * @return quantidade de resumos cadastrados
+     */
     public int getQuantidade() {
         return qntResumo;
     }
 
+    /**
+     * Retorna o índice que será utilizado para o próximo resumo
+     * a ser cadastrado.
+     *
+     * @return índice da próxima posição de cadastro
+     */
     public int getProximo() {
         return proximoIndice;
     }

@@ -23,6 +23,7 @@ public class CoISA {
         descanso.defineHorasDescanso(26);
         descanso.defineNumeroSemanas(1);
         System.out.println(descanso.getStatusGeral());
+        //A linha do código correto esta "P2 0/120" a do de Ana está "P2 0/0"
     }
 
     private static void registrarTempoOnline() {
@@ -55,6 +56,9 @@ public class CoISA {
         RegistroResumos meusResumos = new RegistroResumos(100);  // 100 resumos
         meusResumos.adiciona("Classes", "Classes definem um tipo e a base de código para criação de objetos.");
         meusResumos.adiciona("Tipo", "Identifica a semântica (operações e significados) de um conjunto de dados.");
+        // Na linha "Classes: Classes" do original está "Classes: Classes", o seu no começo está sem o ":".
+        //o do "Tipo" está com o mesmo erro do anteior.
+
 
 
         String[] resumos = meusResumos.pegaResumos();
@@ -67,7 +71,7 @@ public class CoISA {
 
         System.out.println();
         System.out.println("Resumos: ");
-        System.out.println(meusResumos.imprimeResumos());
+        System.out.println(meusResumos.imprimeResumos()); //você errou dentro dos parenteses, está (n), o certo é (s).
         System.out.println(meusResumos.temResumo("Classes"));
         System.out.println(meusResumos.temResumo("Objetos"));
 
