@@ -17,8 +17,6 @@ public class RegistroResumos {
         resumo[proximoIndice] = new Resumo(tema,conteudo);
         proximoIndice++;
 
-
-
         if (proximoIndice == resumo.length) {
             proximoIndice = 0 ;
         }

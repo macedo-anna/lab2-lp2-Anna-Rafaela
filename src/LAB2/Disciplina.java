@@ -43,7 +43,7 @@ public class Disciplina {
 
     @Override
     public String toString() {
-        return  nomeDisciplina  + " "+  horasEstudo + " " +
+        return  nomeDisciplina  + " " +  horasEstudo + " " +
                 media() +" "+ Arrays.toString(notas);
     }
  //"[" + notas[0] + notas[1] + notas[2] + notas[3]+ "]"
