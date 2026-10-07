@@ -48,13 +48,13 @@ public class Descanso {
     public String getStatusGeral(){
 
         if(numSemana == 0) {
-           return "CANSADO";
+           return "CANSADO"; //o correto não é em caps lock.
         }
         int conta = (horasDescanso / numSemana);
         if(conta < 26){
-            return "CANSADO";
+            return "CANSADO"; //o correto não é em caps lock.
         }else{
-            return "DESCANSADO";
+            return "DESCANSADO"; //o correto não é em caps lock.
         }
     }
 

@@ -1,5 +1,7 @@
 package LAB2;
 
+import java.util.Arrays;
+
 public class CoISA {
 
     public static void main(String[] args) {
@@ -56,9 +58,6 @@ public class CoISA {
         RegistroResumos meusResumos = new RegistroResumos(100);  // 100 resumos
         meusResumos.adiciona("Classes", "Classes definem um tipo e a base de código para criação de objetos.");
         meusResumos.adiciona("Tipo", "Identifica a semântica (operações e significados) de um conjunto de dados.");
-        // Na linha "Classes: Classes" do original está "Classes: Classes", o seu no começo está sem o ":".
-        //o do "Tipo" está com o mesmo erro do anteior.
-
 
 
         String[] resumos = meusResumos.pegaResumos();
@@ -74,6 +73,9 @@ public class CoISA {
         System.out.println(meusResumos.imprimeResumos()); //você errou dentro dos parenteses, está (n), o certo é (s).
         System.out.println(meusResumos.temResumo("Classes"));
         System.out.println(meusResumos.temResumo("Objetos"));
+
+
+        System.out.println((Arrays.toString(meusResumos.busca("definem"))));
 
     }
 

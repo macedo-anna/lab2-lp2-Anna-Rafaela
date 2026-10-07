@@ -63,4 +63,12 @@ public class Resumo {
 
         return  tema + " " + conteudo;
     }
+
+    public boolean estaNoConteudo(String palavra){
+        if(conteudo.contains(palavra)){
+            return true;
+        }
+        return false;
+
+    }
 }

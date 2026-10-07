@@ -1,5 +1,6 @@
 package LAB2;
 
+import java.sql.Array;
 import java.util.Arrays;
 
 /**
@@ -29,6 +30,7 @@ public class RegistroResumos {
      * Índice da próxima posição disponível para cadastrar um resumo.
      */
     private int proximoIndice;
+
 
 
     /**
@@ -145,6 +147,23 @@ public class RegistroResumos {
     }
 
 
+    public String[] busca(String chaveDeBusca){
+
+        String[] resposta = new String[resumo.length];
+        int indeceAtual = 0;
+        for (int i = 0;i < qntResumo;i++){
+            String conteudoAvaliado = resumo[i].getConteudo();
+            if(conteudoAvaliado.contains(chaveDeBusca)){
+                 resposta[indeceAtual] = resumo[i].getTema();
+                 indeceAtual ++;
+            }else{
+                resposta[i] = "não encontrado";
+            }
+        }
+        return resposta;
+        }
+
+
 
     /**
      * Busca uma palavras dentro dos conteúdos dos resumos.
@@ -156,7 +175,7 @@ public class RegistroResumos {
      * @return array contendo os temas dos resumos que possuem
      * a chave de busca
      */
-    public String[] busca(String chaveDeBusca) {
+   /* public String[] busca(String chaveDeBusca) {
         String[] encontrados = new String[qntResumo];
         int contador = 0;
 
@@ -182,7 +201,7 @@ public class RegistroResumos {
         Arrays.sort(resultadoFinal);
 
         return resultadoFinal;
-    }
+    }/*
 
     /**
      * Retorna a quantidade de resumos atualmente cadastrados.
