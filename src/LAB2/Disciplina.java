@@ -24,6 +24,11 @@ public class Disciplina {
     private double[] notas;
 
     /**
+     * peso das respectivas notas.
+     */
+    private int[] pesosNotas;
+
+    /**
      * Constrói uma disciplina a partir de seu nome.
      *
      * @param nomeDisciplina nome da disciplina
@@ -32,6 +37,39 @@ public class Disciplina {
 
         this.nomeDisciplina = nomeDisciplina;
         this.notas = new double[4];
+        this.pesosNotas = new int[4];
+
+        for (int i = 0; i < pesosNotas.length; i++) {
+            pesosNotas[i] = 1;
+        }
+    }
+
+    /**
+     * Constrói uma disciplina a partir de seu nome e notas.
+     *
+     * @param nomeDisciplina nome da disciplina
+     */
+
+    public Disciplina(String nomeDisciplina, int quantidadeNotas) {
+        this.nomeDisciplina = nomeDisciplina;
+        this.notas = new double[quantidadeNotas];
+        this.pesosNotas = new int[quantidadeNotas];
+
+        for (int i = 0 ; i < pesosNotas.length; i++){
+            pesosNotas[i] = 1;
+        }
+    }
+
+    /**
+     * Constrói uma disciplina a partir de seu nome,notas e peso das notas.
+     *
+     * @param nomeDisciplina nome da disciplina
+     */
+    public Disciplina(String nomeDisciplina, int quantidadeNotas, int[] pesosNotas){
+        this.nomeDisciplina = nomeDisciplina;
+        this.horasEstudo = 0;
+        this.notas = new double[quantidadeNotas];
+        this.pesosNotas = pesosNotas;
     }
 
     /**
@@ -64,11 +102,14 @@ public class Disciplina {
      */
     private double media() {
         double soma = 0;
+         int somaPesos= 0 ;
         for (int i = 0; i < notas.length; i++) {
-            soma += notas[i];
+
+            somaPesos += pesosNotas[i];
+            soma += notas[i] * pesosNotas[i];
         }
-        double mediaFinal = soma / notas.length;
-        return mediaFinal;
+
+        return  soma / somaPesos;
     }
 
 

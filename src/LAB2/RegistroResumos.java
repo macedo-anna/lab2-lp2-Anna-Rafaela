@@ -147,6 +147,17 @@ public class RegistroResumos {
     }
 
 
+    /**
+     * Busca uma palavras dentro dos conteúdos dos resumos.
+     * A busca não diferencia letras maiúsculas de letras minúsculas.
+     * Os temas dos resumos encontrados são retornados em ordem alfabética.
+     *
+     * @param chaveDeBusca palavra que será procurada
+     * nos conteúdos dos resumos
+     * @return array contendo os temas dos resumos que possuem
+     * a chave de busca
+     */
+
     public String[] busca(String chaveDeBusca){
 
         String[] resposta = new String[resumo.length];
@@ -160,48 +171,16 @@ public class RegistroResumos {
                 resposta[i] = "não encontrado";
             }
         }
-        return resposta;
+        String[] respostaFinal = new String[indeceAtual];
+        for (int i = 0;i < indeceAtual;i++){
+            respostaFinal[i] = resposta[i];
+        }
+
+        Arrays.sort(respostaFinal);
+        return respostaFinal;
         }
 
 
-
-    /**
-     * Busca uma palavras dentro dos conteúdos dos resumos.
-     * A busca não diferencia letras maiúsculas de letras minúsculas.
-     * Os temas dos resumos encontrados são retornados em ordem alfabética.
-     *
-     * @param chaveDeBusca palavra que será procurada
-     * nos conteúdos dos resumos
-     * @return array contendo os temas dos resumos que possuem
-     * a chave de busca
-     */
-   /* public String[] busca(String chaveDeBusca) {
-        String[] encontrados = new String[qntResumo];
-        int contador = 0;
-
-        for(int i = 0;i < qntResumo;i++) {
-
-            String conteudo = resumo[i].getConteudo().toLowerCase();
-
-            String chave = chaveDeBusca.toLowerCase();
-
-            if(conteudo.contains(chave)) {
-                encontrados[contador] = resumo[i].getTema();
-
-                contador++;
-            }
-        }
-
-        String[] resultadoFinal = new String[contador];
-
-        for(int i = 0;i < contador;i++) {
-            resultadoFinal[i] = encontrados[i];
-        }
-
-        Arrays.sort(resultadoFinal);
-
-        return resultadoFinal;
-    }/*
 
     /**
      * Retorna a quantidade de resumos atualmente cadastrados.
